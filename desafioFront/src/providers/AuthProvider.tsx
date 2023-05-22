@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Tlogin } from "../pages/Login/validator";
 import { api } from "../services/api";
@@ -9,6 +9,7 @@ interface AuthProviderProps {
 
 interface AuthContextValues {
   signIn: (data: Tlogin) => void;
+  loading: boolean
 }
 
 export const AuthContext = createContext<AuthContextValues>(
@@ -17,6 +18,19 @@ export const AuthContext = createContext<AuthContextValues>(
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("desafio:token");
+
+    if (!token) {
+        setLoading(false)
+      return;
+    }
+
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    setLoading(false)
+  }, []);
 
   const signIn = async (data: Tlogin) => {
     try {
@@ -34,6 +48,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ signIn }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ signIn , loading}}>{children}</AuthContext.Provider>
   );
 };
