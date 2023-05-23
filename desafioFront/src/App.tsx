@@ -1,11 +1,11 @@
 import { AuthProvider } from "./providers/AuthProvider";
 import { RoutesMain } from "./routes";
-import GlobalStyle from "./styles/GlobalStyle";
+import './styles/GlobalStyle.scss';
+
 
 export const App = () => {
   return (
     <>
-      <GlobalStyle />
       <AuthProvider>
         <RoutesMain />
       </AuthProvider>

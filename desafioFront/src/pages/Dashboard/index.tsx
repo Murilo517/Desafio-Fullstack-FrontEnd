@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { Contact } from "../../interfaces/Contact.intercaces";
+import { Card } from "../../components/Card";
+import './styles.css';
 
-interface Contact {
-  id: string;
-  name: string;
-  email: string;
-  telephone: string;
-}
 
 export const Dashboard = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -18,14 +15,22 @@ export const Dashboard = () => {
     })();
   }, []);
 
+
   return (
-    <>
-      <h1>texte</h1>
-      <ul>
+    <div className="dashboard-container">
+      <header>
+        <div>
+          <h1>Lista de contatos</h1>
+          <button>Sair</button>
+        </div>
+      </header>
+      <main>
+      <ul className="contact-list">
         {contacts.map((contact) => (
-          <li key={contact.id}>{contact.name}</li>
+          <Card key={contact.id} contact={contact}/>
         ))}
       </ul>
-    </>
+      </main>
+    </div>
   );
 };
