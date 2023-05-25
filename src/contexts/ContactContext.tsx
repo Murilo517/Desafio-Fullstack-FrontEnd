@@ -6,9 +6,9 @@ interface ContactProviderProps {
   children: React.ReactNode;
 }
 
-export const CardContext = createContext({} as any);
+export const ContactContext = createContext({} as any);
 
-export const CardProvider = ({ children }: ContactProviderProps) => {
+export const ContactProvider = ({ children }: ContactProviderProps) => {
   const [contacts, setContacts] = useState<Contact[]>([]);
 
   const getContacts = async () => {
@@ -20,23 +20,14 @@ export const CardProvider = ({ children }: ContactProviderProps) => {
     }
   };
 
-  const updateContact = async (contactId: string, updateData: any) => {
-    try {
-      await api.patch(`contacts/${contactId}`, updateData);
-    } catch (error) {
-      console.error(`Erro ao atualizar o contato`, error);
-    }
-  };
-
   return (
-    <CardContext.Provider
+    <ContactContext.Provider
       value={{
-        updateContact,
         contacts,
-        getContacts
+        getContacts,
       }}
     >
       {children}
-    </CardContext.Provider>
+    </ContactContext.Provider>
   );
 };

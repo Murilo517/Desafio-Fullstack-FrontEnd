@@ -1,60 +1,96 @@
-import { useState, useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext, useEffect, useRef } from "react";
+import { TupdateContact, updateContactSchema } from "./schema";
 import { Contact } from "../../interfaces/Contact.interfaces";
+import { createPortal } from "react-dom";
+import { useForm } from "react-hook-form";
+import { api } from "../../services/api";
 import "./styles.css";
+import { ContactContext } from "../../contexts/ContactContext";
 
 interface UpdateModalProps {
   contact: Contact;
-  updateContact: (contactId: string, updateData: any) => void;
   setUpdateModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const UpdateModal = ({
   contact,
-  updateContact,
   setUpdateModalOpen,
 }: UpdateModalProps) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const { getContacts } = useContext(ContactContext);
 
-  useEffect(() => {
-    setName(contact.name);
-    setEmail(contact.email);
-    setTelephone(contact.telephone);
-  }, [contact]);
+  const updateContact = async (updateData: any) => {
+    try {
+      await api.patch(`contacts/${contact.id}`, updateData);
 
-  const handleUpdate = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const updateData = {
-      name,
-      email,
-      telephone,
-    };
-
-    updateContact(contact.id, updateData);
-    setUpdateModalOpen(false);
+      getContacts();
+      setUpdateModalOpen(false);
+    } catch (error) {
+      console.error(`Erro ao atualizar o contato`, error);
+    }
   };
 
-  return (
+  const { register, handleSubmit } = useForm<TupdateContact>({
+    resolver: zodResolver(updateContactSchema),
+  });
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (!ref.current) {
+        return;
+      }
+
+      if (!event.target) {
+        return;
+      }
+
+      if (!ref.current.contains(event.target as HTMLElement)) {
+        setUpdateModalOpen(false);
+      }
+    };
+    window.addEventListener("mousedown", handleClick);
+    return () => {
+      window.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  return createPortal(
     <div className="container">
-      <div>
-        <form onSubmit={handleUpdate}>
-          <input
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-          <input
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <input
-            value={telephone}
-            onChange={(event) => setTelephone(event.target.value)}
-          />
+      <div ref={ref} className="modal-body">
+        <form onSubmit={handleSubmit(updateContact)}>
+          <div>
+            <label htmlFor="name">Nome:</label>
+            <input
+              id="name"
+              type="text"
+              defaultValue={contact.name}
+              {...register("name")}
+            />
+          </div>
+          <div>
+            <label htmlFor="email">E-mail:</label>
+            <input
+              id="email"
+              type="text"
+              defaultValue={contact.email}
+              {...register("email")}
+            />
+          </div>
+          <div>
+            <label htmlFor="telephone">Telefone:</label>
+            <input
+              id="telephone"
+              type="text"
+              defaultValue={contact.telephone}
+              {...register("telephone")}
+            />
+          </div>
           <button type="submit">Atualizar</button>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:sass": "sass src/styles/styles.scss dist/css/styles.css",
+    "build:sass": "sass src/**/*.scss dist/css/styles.css --recursive",
     "build": "tsc && npm run build:sass && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

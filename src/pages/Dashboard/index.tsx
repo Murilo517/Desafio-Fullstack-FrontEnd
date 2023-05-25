@@ -1,12 +1,12 @@
 import { useContext, useEffect } from "react";
 import { Card } from "../../components/Card";
-import { CardContext } from "../../contexts/ContactContext";
+import { ContactContext } from "../../contexts/ContactContext";
 import { Contact } from "../../interfaces/Contact.interfaces";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export const Dashboard = () => {
-  const { contacts, getContacts } = useContext(CardContext);
+  const { contacts, getContacts } = useContext(ContactContext);
   const navigate = useNavigate();
 
   useEffect(() => {
