@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import {
@@ -6,6 +6,7 @@ import {
   AuthProviderProps,
 } from "../interfaces/AuthProvider.interfaces";
 import { Tlogin } from "../pages/Login/schema";
+import { UserContext } from "./UserContext";
 
 export const AuthContext = createContext<AuthContextValues>(
   {} as AuthContextValues
@@ -14,6 +15,8 @@ export const AuthContext = createContext<AuthContextValues>(
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+
+  const { getUser } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("desafio:token");
@@ -35,6 +38,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
 
       localStorage.setItem("desafio:token", token);
+
+      getUser()
 
       navigate("dashboard");
     } catch (error) {

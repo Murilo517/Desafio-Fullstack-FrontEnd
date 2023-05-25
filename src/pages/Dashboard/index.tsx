@@ -5,20 +5,23 @@ import { Contact } from "../../interfaces/Contact.interfaces";
 import { useNavigate } from "react-router-dom";
 import { AddContactModal } from "../../components/AddContactModal";
 import "./styles.css";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Dashboard = () => {
   const { contacts, getContacts } = useContext(ContactContext);
+
+  const { user } = useContext(UserContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     getContacts();
   }, []);
 
-  const logOut = ()=>{
-    
+  const logOut = () => {
     localStorage.removeItem("desafio:token");
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   const [openAddContactModal, setOpenAddContactModal] = useState(false);
 
@@ -27,13 +30,20 @@ export const Dashboard = () => {
       <header>
         <div>
           <h1>Lista de contatos</h1>
+          {user && (
+            <div>
+              <h2>Perfil</h2>
+              <p>Username: {user.username}</p>
+              <p>Name: {user.name}</p>
+              <p>Email: {user.email}</p>
+              <p>Telephone: {user.telephone}</p>
+            </div>
+          )}
           <button onClick={() => setOpenAddContactModal(true)}>
             Adicionar Contato
           </button>
-          { openAddContactModal && (
-            <AddContactModal
-            setOpenAddContactModal={setOpenAddContactModal}
-            />
+          {openAddContactModal && (
+            <AddContactModal setOpenAddContactModal={setOpenAddContactModal} />
           )}
           <button onClick={logOut}>Sair</button>
         </div>
