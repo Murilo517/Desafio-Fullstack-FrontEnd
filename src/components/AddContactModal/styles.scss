@@ -1,0 +1,21 @@
+@import "../../styles/GlobalStyle";
+
+.container{
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-body{
+    background-color: $color-gray-700;
+    padding: 20px;
+    box-shadow: 0 0 25px 0 rgba($color: #000000, $alpha: .25);
+    width: 100%;
+    max-width: 250px;
+}

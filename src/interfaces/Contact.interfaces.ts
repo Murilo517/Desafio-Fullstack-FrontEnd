@@ -5,3 +5,11 @@ export interface Contact {
     email: string;
     telephone: string;
   }
+
+export interface IRegisterContact{
+
+  name: string;
+  email: string;
+  telephone: string;
+
+}

@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background: #0070a0;
+  color: #b8b8b8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body, input, button, textarea {
+  font-family: "Inter";
+  font-size: 1.6rem;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  font-weight: 500;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body {
+  background-color: #3e3e3e;
+  padding: 20px;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 250px;
+}
+
+/*# sourceMappingURL=styles.css.map */

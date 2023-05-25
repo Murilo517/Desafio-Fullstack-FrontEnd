@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Contact } from "../../interfaces/Contact.interfaces";
-import { UpdateModal } from "../UpdateModal";
+import { UpdateModal } from "../UpdateContactModal";
 import "./styles.css";
-import { DeleteModal } from "../DeleteModal";
+import { DeleteModal } from "../DeleteContactModal";
 
 interface ContactProps {
   contact: Contact;
