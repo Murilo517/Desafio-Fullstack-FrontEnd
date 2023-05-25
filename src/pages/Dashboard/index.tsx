@@ -14,6 +14,12 @@ export const Dashboard = () => {
     getContacts();
   }, []);
 
+  const logOut = ()=>{
+    
+    localStorage.removeItem("desafio:token");
+    navigate("/")
+  }
+
   const [openAddContactModal, setOpenAddContactModal] = useState(false);
 
   return (
@@ -29,7 +35,7 @@ export const Dashboard = () => {
             setOpenAddContactModal={setOpenAddContactModal}
             />
           )}
-          <button onClick={() => navigate("/")}>Sair</button>
+          <button onClick={logOut}>Sair</button>
         </div>
       </header>
       <main>

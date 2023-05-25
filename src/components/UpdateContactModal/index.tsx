@@ -5,8 +5,8 @@ import { Contact } from "../../interfaces/Contact.interfaces";
 import { createPortal } from "react-dom";
 import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
-import "./styles.css";
 import { ContactContext } from "../../contexts/ContactContext";
+import "./styles.css";
 
 interface UpdateModalProps {
   contact: Contact;
@@ -87,6 +87,7 @@ export const UpdateModal = ({
               {...register("telephone")}
             />
           </div>
+          <button onClick={()=>setUpdateModalOpen(false)}>Cancelar</button>
           <button type="submit">Atualizar</button>
         </form>
       </div>

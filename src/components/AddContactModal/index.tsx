@@ -45,6 +45,7 @@ export const AddContactModal = ({
             <label htmlFor="telephone">Telefone:</label>
             <input id="telephone" type="text" {...register("telephone")} />
           </div>
+          <button onClick={()=> setOpenAddContactModal(false)}>Cancelar</button>
           <button type="submit">Criar</button>
         </form>
       </div>

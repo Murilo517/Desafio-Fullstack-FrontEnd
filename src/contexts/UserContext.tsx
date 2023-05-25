@@ -21,6 +21,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       console.error("Erro ao criar usuário", error);
     }
   };
+  
+  
 
   return (
     <UserContext.Provider

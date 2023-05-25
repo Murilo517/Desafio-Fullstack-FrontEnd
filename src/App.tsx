@@ -1,7 +1,6 @@
-import { AuthProvider } from "./providers/AuthProvider";
+import { AuthProvider } from "./contexts/AuthContext";
 import { RoutesMain } from "./routes";
-import './styles/GlobalStyle.scss';
-
+import "./styles/GlobalStyle.scss";
 
 export const App = () => {
   return (
