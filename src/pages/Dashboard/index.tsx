@@ -1,11 +1,13 @@
 import { useContext, useEffect } from "react";
 import { Card } from "../../components/Card";
-import "./styles.css";
 import { CardContext } from "../../contexts/ContactContext";
 import { Contact } from "../../interfaces/Contact.interfaces";
+import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 export const Dashboard = () => {
   const { contacts, getContacts } = useContext(CardContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getContacts();
@@ -16,7 +18,7 @@ export const Dashboard = () => {
       <header>
         <div>
           <h1>Lista de contatos</h1>
-          <button>Sair</button>
+          <button onClick={() => navigate("/")}>Sair</button>
         </div>
       </header>
       <main>

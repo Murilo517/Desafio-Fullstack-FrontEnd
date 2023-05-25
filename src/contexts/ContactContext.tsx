@@ -24,7 +24,7 @@ export const CardProvider = ({ children }: ContactProviderProps) => {
     try {
       await api.patch(`contacts/${contactId}`, updateData);
     } catch (error) {
-      console.error(`Erro ao atualizar o contato:${contactId}`, error);
+      console.error(`Erro ao atualizar o contato`, error);
     }
   };
 
@@ -33,7 +33,7 @@ export const CardProvider = ({ children }: ContactProviderProps) => {
       value={{
         updateContact,
         contacts,
-        getContacts,
+        getContacts
       }}
     >
       {children}

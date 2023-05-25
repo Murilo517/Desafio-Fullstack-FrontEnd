@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Contact } from "../../interfaces/Contact.interfaces";
+import "./styles.css";
 
 interface UpdateModalProps {
   contact: Contact;
@@ -36,19 +37,24 @@ export const UpdateModal = ({
   };
 
   return (
-    <div>
-      <form onSubmit={handleUpdate}>
-        <input value={name} onChange={(event) => setName(event.target.value)} />
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          value={telephone}
-          onChange={(event) => setTelephone(event.target.value)}
-        />
-        <button type="submit">Atualizar</button>
-      </form>
+    <div className="container">
+      <div>
+        <form onSubmit={handleUpdate}>
+          <input
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            value={telephone}
+            onChange={(event) => setTelephone(event.target.value)}
+          />
+          <button type="submit">Atualizar</button>
+        </form>
+      </div>
     </div>
   );
 };
