@@ -1,6 +1,5 @@
 @import "../../styles/GlobalStyle.scss";
 
-
 .dashboard-container {
   background-color: $color-primary-100;
   height: 100vh;
@@ -9,11 +8,23 @@
 
   header {
     background-color: $color-primary-100;
-    padding: 1em;
+    border-bottom: 1px solid $color-gray-200;
+    display: flex;
+    justify-content: space-between;
 
-    div {
+    .dashboard-user {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .dashboard-info-user {
+      display: flex;
+      flex-direction: column;
+      font-size: 10px;
+    }
+
+    .dashboard-header-buttons {
+      display: flex;
     }
   }
 
@@ -33,5 +44,4 @@
     gap: 50px;
     padding: 40px;
   }
-
 }

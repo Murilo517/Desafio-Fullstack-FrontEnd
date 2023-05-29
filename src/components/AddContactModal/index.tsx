@@ -35,7 +35,7 @@ export const AddContactModal = ({
     <Modal
       isOpen={Boolean(setOpenAddContactModal)}
       onRequestClose={() => setOpenAddContactModal(false)}
-      contentLabel="Update Contact Modal"
+      contentLabel="Add Contact Modal"
       overlayClassName="container"
       className="modal-body"
     >

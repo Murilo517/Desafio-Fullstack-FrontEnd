@@ -1,5 +1,5 @@
-import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
 
 interface ModalProps {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,13 +13,16 @@ export const ErrorsModal = ({ setOpenModal }: ModalProps) => {
     navigate("/");
   };
 
-  return createPortal(
-    <div className="container">
-      <div className="modal-body">
-        <p>Você não está autenticado</p>
-        <button onClick={closeExit}>Voltar</button>
-      </div>
-    </div>,
-    document.body
+  return (
+    <Modal
+      isOpen={Boolean(setOpenModal)}
+      onRequestClose={() => setOpenModal(false)}
+      contentLabel="Delete Contact Modal"
+      overlayClassName="container"
+      className="modal-body"
+    >
+      <p>Você não está autenticado</p>
+      <button onClick={closeExit}>Voltar</button>
+    </Modal>
   );
 };

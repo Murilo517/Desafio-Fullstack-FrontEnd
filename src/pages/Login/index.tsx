@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Tlogin, schema } from "./schema";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import imgContact from '../../assets/agenda.png'
 import './styles.scss'
 
 export const Login = () => {
@@ -18,10 +19,11 @@ export const Login = () => {
   return (
     <main>
       <header className="login-header">
-        <h2>Login</h2>
+        <h2>Agenda Online</h2>
         <button onClick={() => navigate("/register")}>Cadastrar</button>
       </header>
       <div className="login-div">
+      <img src={imgContact} className="imgContact" alt="Image" />
         <form className="login-form" onSubmit={handleSubmit(signIn)}>
           <label htmlFor="username">Username / Apelido</label>
           <input type="text" id="username" {...register("username")} />

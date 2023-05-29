@@ -7,7 +7,7 @@ import { AddContactModal } from "../../components/AddContactModal";
 import { UserContext } from "../../contexts/UserContext";
 import { UpdateUserModal } from "../../components/UpdateUserModal";
 import { DeleteUserModal } from "../../components/DeleteUserModal";
-import './styles.scss'
+import "./styles.scss";
 
 export const Dashboard = () => {
   const { contacts, getContacts } = useContext(ContactContext);
@@ -34,23 +34,30 @@ export const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <header>
-        <div>
-          <h1>Lista de contatos</h1>
+        <h1>Lista de contatos</h1>
+        <div className="dashboard-user">
           {user && (
-            <div>
+            <div className="dashboard-info-user">
               <h2>Perfil</h2>
               <p>Username: {user.username}</p>
               <p>Name: {user.name}</p>
               <p>Email: {user.email}</p>
-              <p>Telephone: {user.telephone}</p>
+              <p>Telefone: {user.telephone}</p>
             </div>
           )}
-          <button onClick={() => setOpenUpdateUsermodal(true)}>
-            Editar Perfil
-          </button>
-          <button onClick={() => setopenDeleteUsermodal(true)}>
-            Deletar usuário
-          </button>
+          <div className="dashboard-header-buttons">
+            <button onClick={() => setOpenUpdateUsermodal(true)}>
+              Editar Perfil
+            </button>
+            <button onClick={() => setopenDeleteUsermodal(true)}>
+              Deletar usuário
+            </button>
+            <button onClick={() => setOpenAddContactModal(true)}>
+              Adicionar Contato
+            </button>
+            <button onClick={logOut}>Sair</button>
+          </div>
+
           {openDeleteUsermodal && (
             <DeleteUserModal setopenDeleteUsermodal={setopenDeleteUsermodal} />
           )}
@@ -58,13 +65,9 @@ export const Dashboard = () => {
           {openUpdateUserModal && (
             <UpdateUserModal setOpenUpdateUsermodal={setOpenUpdateUsermodal} />
           )}
-          <button onClick={() => setOpenAddContactModal(true)}>
-            Adicionar Contato
-          </button>
           {openAddContactModal && (
             <AddContactModal setOpenAddContactModal={setOpenAddContactModal} />
           )}
-          <button onClick={logOut}>Sair</button>
         </div>
       </header>
       <main>

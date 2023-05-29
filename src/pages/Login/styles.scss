@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px 40px;
+  border-bottom: 1px solid $color-gray-200;
 }
 
 .login-div {
@@ -11,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 150px;
 }
 
 .login-form {
@@ -19,4 +21,9 @@
   max-width: 350px;
   background-color: $color-gray-200;
   padding: 20px;
+}
+
+
+.imgContact{
+  max-width: 250px;
 }

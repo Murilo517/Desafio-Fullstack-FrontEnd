@@ -29,7 +29,7 @@ export const DeleteModal = ({ contact, setDeleteModalOpen }: DeleteModalProps) =
     <Modal
       isOpen={Boolean(setDeleteModalOpen)}
       onRequestClose={() => setDeleteModalOpen(false)}
-      contentLabel="Delete Modal"
+      contentLabel="Delete Contact Modal"
       overlayClassName="container"
       className="modal-body"
     >
