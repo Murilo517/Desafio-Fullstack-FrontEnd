@@ -1,9 +1,9 @@
-import { createPortal } from "react-dom";
 import { Contact } from "../../interfaces/Contact.interfaces";
 import { api } from "../../services/api";
 import { ContactContext } from "../../contexts/ContactContext";
 import { useContext } from "react";
 import { GiCancel, GiConfirmed} from 'react-icons/gi'
+import Modal from "react-modal";
 import './styles.scss'
 
 interface DeleteModalProps {
@@ -25,16 +25,24 @@ export const DeleteModal = ({ contact, setDeleteModalOpen }: DeleteModalProps) =
     }
   };
 
-  return createPortal(
-    <div className="container">
-      <div className="modal-body">
-        <p>Deseja realmente deletar este contato?</p>
-        <div className="button-container">
-          <button className="cancel-button" onClick={() => setDeleteModalOpen(false)}><GiCancel/></button>
-          <button className="confirm-button"  onClick={deleteContact}><GiConfirmed/></button>
-        </div>
-      </div>
-    </div>,
-    document.body
+  return (
+    <Modal
+      isOpen={Boolean(setDeleteModalOpen)}
+      onRequestClose={() => setDeleteModalOpen(false)}
+      contentLabel="Delete Modal"
+      overlayClassName="container"
+      className="modal-body"
+    >
+          <p>Deseja realmente deletar este contato?</p>
+          <div className="button-container">
+            <button className="cancel-button" onClick={() => setDeleteModalOpen(false)}>
+              <GiCancel />
+            </button>
+            <button className="confirm-button" onClick={deleteContact}>
+              <GiConfirmed />
+            </button>
+          </div>
+    </Modal>
   );
+  
 };
