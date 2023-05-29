@@ -7,6 +7,7 @@ import {
 } from "../interfaces/AuthProvider.interfaces";
 import { Tlogin } from "../pages/Login/schema";
 import { UserContext } from "./UserContext";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext<AuthContextValues>(
   {} as AuthContextValues
@@ -42,8 +43,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       getUser()
 
       navigate("dashboard");
-    } catch (error) {
-      console.error(error);
+    } catch (error:any) {
+      
+      toast.error("Verifique suas credenciais.",{
+        autoClose: 1000
+      })
     }
   };
 

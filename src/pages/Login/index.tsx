@@ -23,7 +23,7 @@ export const Login = () => {
       </header>
       <div className="login-div">
         <form className="login-form" onSubmit={handleSubmit(signIn)}>
-          <label htmlFor="username">Usuário</label>
+          <label htmlFor="username">Username / Apelido</label>
           <input type="text" id="username" {...register("username")} />
           {errors.username && (
             <span>{errors.username.message}</span>

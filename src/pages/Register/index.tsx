@@ -21,29 +21,26 @@ export const RegisterPage = () => {
         <button onClick={() => navigate("/")}>Voltar ao Login</button>
       </header>
       <h2>Cadastrar Usuário</h2>
-      <form className="register-form" onSubmit={handleSubmit(createUser)}>
-        <label htmlFor="name">Nome:</label>
-        <input type="text" id="name" {...register("name")} />
-        {errors.name && <span className="error">{errors.name.message}</span>}
-
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" {...register("username")} />
-        {errors.username && <span className="error">{errors.username.message}</span>}
-
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" {...register("email")} />
-        {errors.email && <span className="error">{errors.email.message}</span>}
-
-        <label htmlFor="password">Senha:</label>
-        <input type="password" id="password" {...register("password")} />
-        {errors.password && <span className="error">{errors.password.message}</span>}
-
-        <label htmlFor="telephone">Telefone:</label>
-        <input type="tel" id="telephone" {...register("telephone")} />
-        {errors.telephone && <span className="error">{errors.telephone.message}</span>}
-
-        <button type="submit">Criar</button>
-      </form>
+      <div className="register-div">
+        <form className="register-form" onSubmit={handleSubmit(createUser)}>
+          <label htmlFor="name">Nome:</label>
+          <input type="text" id="name" {...register("name")} />
+          {errors.name && <span className="error">{errors.name.message}</span>}
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" {...register("username")} />
+          {errors.username && <span className="error">{errors.username.message}</span>}
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" {...register("email")} />
+          {errors.email && <span className="error">{errors.email.message}</span>}
+          <label htmlFor="password">Senha:</label>
+          <input type="password" id="password" {...register("password")} />
+          {errors.password && <span className="error">{errors.password.message}</span>}
+          <label htmlFor="telephone">Telefone:</label>
+          <input type="tel" id="telephone" {...register("telephone")} />
+          {errors.telephone && <span className="error">{errors.telephone.message}</span>}
+          <button type="submit">Criar</button>
+        </form>
+      </div>
     </main>
   );
 };

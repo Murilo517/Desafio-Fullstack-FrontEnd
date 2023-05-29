@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { iRegisterUser } from "../interfaces/User.interfaces";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface UserProviderProps {
   children: React.ReactNode;
@@ -18,8 +19,15 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     try {
       await api.post("/users", body);
 
+      toast.success("Usuário criado com sucesso!",{
+        autoClose: 1000
+      })
+
       navigate("/");
-    } catch (error) {
+    } catch (error:any) {
+      if (error.response && error.response.status === 500) {
+        toast.error("Erro interno do servidor. Tente novamente mais tarde.");
+      }
       console.error("Erro ao criar usuário", error);
     }
   };
