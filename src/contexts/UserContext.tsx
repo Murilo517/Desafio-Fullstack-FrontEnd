@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { iRegisterUser } from "../interfaces/User.interfaces";
 import { useNavigate } from "react-router-dom";
@@ -38,6 +38,13 @@ export const UserProvider = ({ children }: UserProviderProps) => {
       console.error("Erro ao obter os contatos", error);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("desafio:token");
+    if (token) {
+      getUser();
+    }
+  }, []);
 
   return (
     <UserContext.Provider

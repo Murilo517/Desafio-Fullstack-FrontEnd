@@ -4,11 +4,17 @@ import { ContactContext } from "../../contexts/ContactContext";
 import { Contact } from "../../interfaces/Contact.interfaces";
 import { useNavigate } from "react-router-dom";
 import { AddContactModal } from "../../components/AddContactModal";
-import "./styles.css";
 import { UserContext } from "../../contexts/UserContext";
+import { UpdateUserModal } from "../../components/UpdateUserModal";
+import { DeleteUserModal } from "../../components/DeleteUserModal";
+import './styles.scss'
 
 export const Dashboard = () => {
   const { contacts, getContacts } = useContext(ContactContext);
+
+  const [openUpdateUserModal, setOpenUpdateUsermodal] = useState(false);
+
+  const [openDeleteUsermodal, setopenDeleteUsermodal] = useState(false);
 
   const { user } = useContext(UserContext);
 
@@ -39,6 +45,19 @@ export const Dashboard = () => {
               <p>Telephone: {user.telephone}</p>
             </div>
           )}
+          <button onClick={() => setOpenUpdateUsermodal(true)}>
+            Editar Perfil
+          </button>
+          <button onClick={() => setopenDeleteUsermodal(true)}>
+            Deletar usuário
+          </button>
+          {openDeleteUsermodal && (
+            <DeleteUserModal setopenDeleteUsermodal={setopenDeleteUsermodal} />
+          )}
+
+          {openUpdateUserModal && (
+            <UpdateUserModal setOpenUpdateUsermodal={setOpenUpdateUsermodal} />
+          )}
           <button onClick={() => setOpenAddContactModal(true)}>
             Adicionar Contato
           </button>
@@ -49,7 +68,7 @@ export const Dashboard = () => {
         </div>
       </header>
       <main>
-        <ul className="contact-list">
+        <ul>
           {contacts.map((contact: Contact) => (
             <Card key={contact.id} contact={contact} />
           ))}

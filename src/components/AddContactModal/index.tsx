@@ -6,6 +6,9 @@ import { TaddNewContactSchema, addNewContactSchema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext } from "react";
 import { ContactContext } from "../../contexts/ContactContext";
+import { GiCancel,  GiConfirmed} from 'react-icons/gi'
+import './styles.scss'
+
 
 interface addContactModalProps {
   setOpenAddContactModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -45,8 +48,10 @@ export const AddContactModal = ({
             <label htmlFor="telephone">Telefone:</label>
             <input id="telephone" type="text" {...register("telephone")} />
           </div>
-          <button onClick={()=> setOpenAddContactModal(false)}>Cancelar</button>
-          <button type="submit">Criar</button>
+          <div className="button-container">
+            <button className="cancel-button" onClick={()=> setOpenAddContactModal(false)}><GiCancel/></button>
+            <button className="confirm-button" type="submit"><GiConfirmed/></button>
+          </div>
         </form>
       </div>
     </div>,

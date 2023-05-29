@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 import { useForm } from "react-hook-form";
 import { api } from "../../services/api";
 import { ContactContext } from "../../contexts/ContactContext";
-import "./styles.css";
+import { GiCancel,  GiConfirmed} from 'react-icons/gi'
 
 interface UpdateModalProps {
   contact: Contact;
@@ -87,8 +87,10 @@ export const UpdateModal = ({
               {...register("telephone")}
             />
           </div>
-          <button onClick={()=>setUpdateModalOpen(false)}>Cancelar</button>
-          <button type="submit">Atualizar</button>
+          <div className="button-container">
+            <button className="cancel-button" onClick={()=>setUpdateModalOpen(false)}><GiCancel/></button>
+            <button className="confirm-button" type="submit"><GiConfirmed/></button>
+          </div>
         </form>
       </div>
     </div>,

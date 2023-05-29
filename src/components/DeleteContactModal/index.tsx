@@ -3,6 +3,8 @@ import { Contact } from "../../interfaces/Contact.interfaces";
 import { api } from "../../services/api";
 import { ContactContext } from "../../contexts/ContactContext";
 import { useContext } from "react";
+import { GiCancel, GiConfirmed} from 'react-icons/gi'
+import './styles.scss'
 
 interface DeleteModalProps {
   contact: Contact;
@@ -27,8 +29,10 @@ export const DeleteModal = ({ contact, setDeleteModalOpen }: DeleteModalProps) =
     <div className="container">
       <div className="modal-body">
         <p>Deseja realmente deletar este contato?</p>
-        <button onClick={() => setDeleteModalOpen(false)}>Cancelar</button>
-        <button onClick={deleteContact}>Deletar</button>
+        <div className="button-container">
+          <button className="cancel-button" onClick={() => setDeleteModalOpen(false)}><GiCancel/></button>
+          <button className="confirm-button"  onClick={deleteContact}><GiConfirmed/></button>
+        </div>
       </div>
     </div>,
     document.body

@@ -22,4 +22,4 @@ node_modules
 *.sw?
 
 # Dist folder
-/dist
+dist/
