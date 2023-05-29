@@ -52,6 +52,10 @@ button {
   cursor: pointer;
 }
 
+button:hover{
+  color: purple;
+}
+
 .button-container {
   margin-top: 10px;
   display: flex;
