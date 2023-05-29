@@ -1,0 +1,22 @@
+@import "../../styles/GlobalStyle";
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.login-div {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  background-color: $color-gray-200;
+  padding: 20px;
+}
