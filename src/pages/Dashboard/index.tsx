@@ -34,19 +34,19 @@ export const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <header>
-        <div className="dashboard-teste">
+        <div className="dashboard-div-user">
           <h1>Lista de contatos</h1>
             {user && (
               <div className="dashboard-info-user">
                 <h2>Seus dados:</h2>
                 <p>Username: {user.username}</p>
-                <p>Name: {user.name}</p>
+                <p>Nome: {user.name}</p>
                 <p>Email: {user.email}</p>
                 <p>Telefone: {user.telephone}</p>
               </div>
             )}
-          
         </div>
+
           <div className="dashboard-header-buttons">
             <button onClick={() => setOpenUpdateUsermodal(true)}>
               Editar Perfil
