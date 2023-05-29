@@ -34,17 +34,19 @@ export const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <header>
-        <h1>Lista de contatos</h1>
-        <div className="dashboard-user">
-          {user && (
-            <div className="dashboard-info-user">
-              <h2>Perfil</h2>
-              <p>Username: {user.username}</p>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-              <p>Telefone: {user.telephone}</p>
-            </div>
-          )}
+        <div className="dashboard-teste">
+          <h1>Lista de contatos</h1>
+            {user && (
+              <div className="dashboard-info-user">
+                <h2>Seus dados:</h2>
+                <p>Username: {user.username}</p>
+                <p>Name: {user.name}</p>
+                <p>Email: {user.email}</p>
+                <p>Telefone: {user.telephone}</p>
+              </div>
+            )}
+          
+        </div>
           <div className="dashboard-header-buttons">
             <button onClick={() => setOpenUpdateUsermodal(true)}>
               Editar Perfil
@@ -68,7 +70,7 @@ export const Dashboard = () => {
           {openAddContactModal && (
             <AddContactModal setOpenAddContactModal={setOpenAddContactModal} />
           )}
-        </div>
+
       </header>
       <main>
         <ul>

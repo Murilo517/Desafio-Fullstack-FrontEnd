@@ -3,8 +3,16 @@
 .register-header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  align-items: center;
+  padding: 15px 40px;
   border-bottom: 1px solid $color-gray-200;
+
+  button{
+    background-color: $color-gray-200;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+  }
 }
 
 .register-div {
@@ -21,4 +29,6 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
+
+
 }

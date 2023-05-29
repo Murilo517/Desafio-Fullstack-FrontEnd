@@ -5,10 +5,17 @@
   justify-content: space-between;
   padding: 20px 40px;
   border-bottom: 1px solid $color-gray-200;
+
+  button{
+    background-color: $color-gray-200;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+  }
 }
 
 .login-div {
-  margin-top: 50px;
+  margin-top: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +28,7 @@
   max-width: 350px;
   background-color: $color-gray-200;
   padding: 20px;
+
 }
 
 

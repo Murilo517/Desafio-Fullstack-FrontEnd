@@ -26,7 +26,7 @@ export const RegisterPage = () => {
       </header>
       <div className="register-div">
         <form className="register-form" onSubmit={handleSubmit(createUser)}>
-          <h4>Cadastrar Usuário</h4>
+          <h4>Cadastrar</h4>
           <label htmlFor="name">Nome:</label>
           <input type="text" id="name" {...register("name")} />
           {errors.name && <span className="error">{errors.name.message}</span>}
