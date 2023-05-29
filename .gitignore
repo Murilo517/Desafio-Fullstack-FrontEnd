@@ -23,3 +23,5 @@ node_modules
 
 # Dist folder
 dist/
+
+.vercel

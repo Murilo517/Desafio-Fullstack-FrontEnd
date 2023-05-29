@@ -31,9 +31,9 @@ export const DeleteModal = ({ contact, setDeleteModalOpen }: DeleteModalProps) =
       onRequestClose={() => setDeleteModalOpen(false)}
       contentLabel="Delete Contact Modal"
       overlayClassName="container"
-      className="modal-body"
+      className="modal-body-delete-contact"
     >
-          <p>Deseja realmente deletar este contato?</p>
+          <h3>Deseja realmente deletar este contato?</h3>
           <div className="button-container">
             <button className="cancel-button" onClick={() => setDeleteModalOpen(false)}>
               <GiCancel />

@@ -1,8 +1,10 @@
-import { createPortal } from "react-dom";
 import { api } from "../../services/api";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { GiCancel, GiConfirmed } from "react-icons/gi";
+import Modal from "react-modal";
+import "./styles.scss";
 
 interface DeleteModalProps {
   setopenDeleteUsermodal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,14 +38,19 @@ export const DeleteUserModal = ({
     }
   };
 
-  return createPortal(
-    <div className="container">
-      <div className="modal-body">
-        <p>Deseja realmente deletar seu usuário?</p>
-        <button onClick={() => setopenDeleteUsermodal(false)}>Cancelar</button>
-        <button onClick={deleteUser}>Deletar</button>
+  return (
+    <Modal
+      isOpen={Boolean(setopenDeleteUsermodal)}
+      onRequestClose={() => setopenDeleteUsermodal(false)}
+      contentLabel="Delete User Modal"
+      overlayClassName="container"
+      className="modal-body-delete-user"
+    >
+      <p>Deseja realmente deletar seu usuário?</p>
+      <div className="button-container">
+        <button className="cancel-button" onClick={() => setopenDeleteUsermodal(false)}><GiCancel/></button>
+        <button className="confirm-button" onClick={deleteUser}><GiConfirmed/></button>
       </div>
-    </div>,
-    document.body
+    </Modal>
   );
 };

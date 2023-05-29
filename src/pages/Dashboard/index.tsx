@@ -35,7 +35,7 @@ export const Dashboard = () => {
     <div className="dashboard-container">
       <header>
         <div className="dashboard-div-user">
-          <h1>Lista de contatos</h1>
+          <h1>Agenda de contatos</h1>
             {user && (
               <div className="dashboard-info-user">
                 <h2>Seus dados:</h2>
@@ -48,14 +48,14 @@ export const Dashboard = () => {
         </div>
 
           <div className="dashboard-header-buttons">
+            <button onClick={() => setOpenAddContactModal(true)}>
+              Adicionar Novo Contato
+            </button>
             <button onClick={() => setOpenUpdateUsermodal(true)}>
               Editar Perfil
             </button>
             <button onClick={() => setopenDeleteUsermodal(true)}>
               Deletar usuário
-            </button>
-            <button onClick={() => setOpenAddContactModal(true)}>
-              Adicionar Contato
             </button>
             <button onClick={logOut}>Sair</button>
           </div>

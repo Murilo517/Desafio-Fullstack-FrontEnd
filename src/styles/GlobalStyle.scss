@@ -74,7 +74,7 @@ form {
 
 label {
   margin-bottom: 10px;
-  font-family: 'Balsamiq Sans', sans-serif;;
+  font-family: 'Balsamiq Sans', sans-serif;
 }
 
 input {
@@ -130,14 +130,4 @@ button:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal-body {
-  background-color: $color-gray-700;
-  padding: 20px;
-  box-shadow: 0 0 25px 0 rgba($color: #000000, $alpha: 0.25);
-  width: 100%;
-  max-width: 350px;
-  max-height: 300px;
-
 }

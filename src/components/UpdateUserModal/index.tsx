@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { TupdateUser, updateUserSchema } from "./schema";
 import { GiCancel, GiConfirmed } from "react-icons/gi";
 import Modal from "react-modal";
+import './styles.scss'
 
 interface UpdateModalProps {
   setOpenUpdateUsermodal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,9 +38,10 @@ export const UpdateUserModal = ({
       onRequestClose={() => setOpenUpdateUsermodal(false)}
       contentLabel="Update User Modal"
       overlayClassName="container"
-      className="modal-body"
+      className="modal-body-update-user"
     >
       <form onSubmit={handleSubmit(updateUser)}>
+        <h3>Editar usuário</h3>
         <label htmlFor="username">Username:</label>
         <input
           id="username"

@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 import { ContactContext } from "../../contexts/ContactContext";
 import { GiCancel, GiConfirmed } from "react-icons/gi";
 import Modal from "react-modal";
+import "./styles.scss";
 
 interface UpdateModalProps {
   contact: Contact;
@@ -40,36 +41,32 @@ export const UpdateModal = ({
       onRequestClose={() => setUpdateModalOpen(false)}
       contentLabel="Update Contact Modal"
       overlayClassName="container"
-      className="modal-body"
+      className="modal-body-update-contact"
     >
       <form onSubmit={handleSubmit(updateContact)}>
-        <div>
-          <label htmlFor="name">Nome:</label>
-          <input
-            id="name"
-            type="text"
-            defaultValue={contact.name}
-            {...register("name")}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">E-mail:</label>
-          <input
-            id="email"
-            type="text"
-            defaultValue={contact.email}
-            {...register("email")}
-          />
-        </div>
-        <div>
-          <label htmlFor="telephone">Telefone:</label>
-          <input
-            id="telephone"
-            type="text"
-            defaultValue={contact.telephone}
-            {...register("telephone")}
-          />
-        </div>
+        <h3>Editar contato</h3>
+        <label htmlFor="name">Nome:</label>
+        <input
+          id="name"
+          type="text"
+          defaultValue={contact.name}
+          {...register("name")}
+        />
+
+        <label htmlFor="email">E-mail:</label>
+        <input
+          id="email"
+          type="text"
+          defaultValue={contact.email}
+          {...register("email")}
+        />
+        <label htmlFor="telephone">Telefone:</label>
+        <input
+          id="telephone"
+          type="text"
+          defaultValue={contact.telephone}
+          {...register("telephone")}
+        />
         <div className="button-container">
           <button
             className="cancel-button"

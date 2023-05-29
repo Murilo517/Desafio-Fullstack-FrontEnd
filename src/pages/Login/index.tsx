@@ -25,6 +25,7 @@ export const Login = () => {
       <div className="login-div">
       <img src={imgContact} className="imgContact" alt="Image" />
         <form className="login-form" onSubmit={handleSubmit(signIn)}>
+
           <label htmlFor="username">Username / Apelido</label>
           <input type="text" id="username" {...register("username")} />
           {errors.username && (
@@ -35,6 +36,7 @@ export const Login = () => {
           {errors.password && (
             <span>{errors.password.message}</span>
           )}
+          
           <button type="submit">Entrar</button>
         </form>
       </div>

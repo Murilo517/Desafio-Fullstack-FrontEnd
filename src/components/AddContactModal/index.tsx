@@ -37,21 +37,19 @@ export const AddContactModal = ({
       onRequestClose={() => setOpenAddContactModal(false)}
       contentLabel="Add Contact Modal"
       overlayClassName="container"
-      className="modal-body"
+      className="modal-body-add-contact"
     >
       <form onSubmit={handleSubmit(addNewContact)}>
-        <div>
-          <label htmlFor="name">Nome:</label>
-          <input id="name" type="text" {...register("name")} />
-        </div>
-        <div>
-          <label htmlFor="email">E-mail:</label>
-          <input id="email" type="text" {...register("email")} />
-        </div>
-        <div>
-          <label htmlFor="telephone">Telefone:</label>
-          <input id="telephone" type="text" {...register("telephone")} />
-        </div>
+        <h3>Adicionar novo contato</h3>
+        <label htmlFor="name">Nome:</label>
+        <input id="name" type="text" {...register("name")} />
+
+        <label htmlFor="email">E-mail:</label>
+        <input id="email" type="text" {...register("email")} />
+
+        <label htmlFor="telephone">Telefone:</label>
+        <input id="telephone" type="text" {...register("telephone")} />
+
         <div className="button-container">
           <button
             className="cancel-button"
