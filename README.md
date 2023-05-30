@@ -28,5 +28,18 @@ Essas bibliotecas fornecem recursos adicionais que potencializam o funcionamento
 
 Sinta-se à vontade para explorar o repositório, testar a aplicação em seu próprio ambiente e aproveitar a facilidade de gerenciar suas tarefas e compromissos com praticidade.
 
+Certifique-se de ter o Node.js e o Yarn instalados no seu sistema. Você pode baixá-los em seus respectivos sites oficiais.
+ 
+Passo a passo:
+
+1.Clone o repositório principal da aplicação React para o seu computador.
+
+2.Abra um terminal ou prompt de comando e navegue até o diretório raiz da aplicação.
+
+3.Execute o comando yarn install para instalar as dependências necessárias listadas no arquivo package.json.
+
+4.Clone a api https://github.com/Murilo517/Desafio-fullstack-BackEnd e siga os passos dela e a inicie.
+
+5.Execute o comando yarn dev para iniciar a aplicação no navegador. Certifique-se de que a API também esteja em execução para que a aplicação possa se comunicar com ela.
+
 Divirta-se utilizando a Agenda Virtual em React e aproveite para otimizar sua rotina de maneira organizada e eficiente!
-Utilize o comando "yarn dev" para rodar a aplicação.
