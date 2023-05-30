@@ -29,3 +29,4 @@ Essas bibliotecas fornecem recursos adicionais que potencializam o funcionamento
 Sinta-se à vontade para explorar o repositório, testar a aplicação em seu próprio ambiente e aproveitar a facilidade de gerenciar suas tarefas e compromissos com praticidade.
 
 Divirta-se utilizando a Agenda Virtual em React e aproveite para otimizar sua rotina de maneira organizada e eficiente!
+Utilize o comando "yarn dev" para rodar a aplicação.
